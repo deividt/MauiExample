@@ -17,12 +17,12 @@ public class NavigationService : INavigationService
     public async Task GoBackAsync()
         => await Shell.Current.GoToAsync("..");
 
-    private async Task InternalNavigateToAsync(Type viewModelType, object parameter, bool isAbsoluteRoute = false)
+    private static async Task InternalNavigateToAsync(Type viewModelType, object? parameter, bool isAbsoluteRoute = false)
     {
         var viewName = viewModelType.Name?.Replace("ViewModels", "Views").Replace("ViewModel", "");
         var absolutePrefix = isAbsoluteRoute ? "///" : string.Empty;
 
-        if (parameter != null)
+        if (parameter is not null)
         {
             await Shell.Current.GoToAsync(
                 $"{absolutePrefix}{viewName}?id={HttpUtility.UrlEncode(parameter.ToString())}");
