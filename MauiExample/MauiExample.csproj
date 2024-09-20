@@ -30,6 +30,15 @@
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
 
+        <!--  Added due to this error: CHECK IF CAN BE REMOVED LATER      -->
+        <!--  0>CommunityToolkit.Mvvm.WindowsSdk.targets(81,5): Error MVVMTKCFG0003 : This version of the MVVM Toolkit 
+        requires 'Microsoft.Windows.SDK.NET.Ref' version '10.0.19041.38' or later. Please update to 
+        .NET SDK 8.0.109, 8.0.305 or 8.0.402 (or later).
+        Alternatively, use a temporary 'Microsoft.Windows.SDK.NET.Ref' reference, which can be done by setting the 
+        'WindowsSdkPackageVersion' property in your .csproj file. For your project configuration, 
+        it is recommended to set the package version to '10.0.19041.41'.-->
+        <WindowsSdkPackageVersion>10.0.19041.41</WindowsSdkPackageVersion>
+
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -57,8 +66,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
+        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.3" />
+        <PackageReference Include="CommunityToolkit.Maui.Core" Version="9.0.3" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.90" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.90" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
     </ItemGroup>
 
