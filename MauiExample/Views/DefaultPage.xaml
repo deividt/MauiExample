@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiExample.Views.DefaultPage"
+             xmlns:views="clr-namespace:MauiExample.Views"
+             xmlns:viewmodel="clr-namespace:MauiExample.ViewModels"
+             x:DataType="viewmodel:DefaultPageViewModel">
+    <ScrollView>
+        <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
+
+            <Label 
+                Text="This is a template page!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="Go Back"
+                Command="{Binding GoBackCommand }"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView> 
+</views:BasePage>
